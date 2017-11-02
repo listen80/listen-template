@@ -1,0 +1,22 @@
+{
+  "author": {
+    "name": "lijiabin"
+  },
+  "description": "leaf template, easy, small, quick",
+  "scripts": {
+    "start": "node build"
+  },
+  "main": "src/leaf.js",
+  "maintainers": [
+    {
+      "email": "13631624455@qq.com",
+      "name": "lijiabin"
+    }
+  ],
+  "name": "leaf",
+  "version": "1.0.0",
+  "devDependencies": {
+    "clean-css": "^4.1.9",
+    "uglify-js": "^3.1.6"
+  }
+}
