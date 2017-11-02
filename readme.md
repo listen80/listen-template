@@ -1,11 +1,11 @@
-# listen-template
+# leaf
 
 ### compile
 1. npm install
 2. npm start
 
 ### node环境
-var leaf = require('listem-template')
+var leaf = require('leaf')
 
 ## 用法
 <pre>
