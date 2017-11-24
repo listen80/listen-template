@@ -16,7 +16,6 @@
   "name": "leaf",
   "version": "1.0.0",
   "devDependencies": {
-    "clean-css": "^4.1.9",
     "uglify-js": "^3.1.6"
   }
 }
