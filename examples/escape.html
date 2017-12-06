@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>leaf</title>
+    <style>
+    body {
+        font-family: '宋体';
+    }
+    </style>
+    <script src="../src/leaf.js"></script>
+</head>
+
+<body>
+    <p>
+        很多浏览器防止了script,img标签的执行，但是绑定动态插入的标签还是可以攻击
+    </p>
+    <script id="tpl" type="text/leaf">
+        {for $d}
+        <ol>
+            <li>{$k} => {$v}</li>
+            <li>{escape $k} => {escape $v}</li>
+        </ol>
+        {/for}
+    </script>
+    <div id="test"></div>
+    <script>
+    var xss = {
+        '<b>bb</b>': '<img src="javascript:\'alert(1)\'"><\/img>',
+        'img': '<img onmouseenter="alert(\'XSS\')" alt="xss">',
+        '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
+    }
+    var html = leaf('tpl')(xss);
+    var test = document.getElementById('test');
+    test.innerHTML = html;
+    </script>
+</body>
+
+</html>

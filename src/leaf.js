@@ -112,7 +112,7 @@
                 break;
 
             case 'escape':
-                code = echo("$e(" + code + ")");
+                code = echo("$e(" + split.join(' ') + ")");
                 break;
 
             case 'include':

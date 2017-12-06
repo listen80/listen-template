@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>leaf</title>
+    <script src="../src/leaf.js"></script>
+</head>
+
+<body>
+    <script id="tpl" type="text/leaf">
+        {for $d.list}
+            <p>
+                {if $v > 60}
+                {$k + 1} => <span style="color: green;">{$v}</span>
+                {elif $v > 30}
+                {$k + 1} => <span style="color: red;">{$v}</span>
+                {else}
+                {$k + 1} => <span style="color: blue;">{$v}</span>
+                {/if}
+            </p>
+        {/for}
+    </script>
+    <div id="test"></div>
+    <script>
+    var data = {
+        list: []
+    }
+    for(var x = 0; x < 100; x++) {
+        data.list.push(Math.floor(Math.random() * 100))
+    }
+    var html = leaf('tpl')(data);
+    var test = document.getElementById('test');
+    test.innerHTML = html;
+    </script>
+</body>
+
+</html>
