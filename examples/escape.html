@@ -28,7 +28,7 @@
     <script>
     var xss = {
         '<b>bb</b>': '<img src="javascript:\'alert(1)\'"><\/img>',
-        'img': '<img onmouseenter="alert(\'XSS\')" alt="xss">',
+        'img': '<img onerror="alert(\'XSS\')" alt="xss" src="">',
         '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
     }
     var html = leaf('tpl')(xss);
