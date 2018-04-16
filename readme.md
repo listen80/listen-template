@@ -11,7 +11,7 @@ var leaf = require('leaf')
 引入leaf.js leaf为全局变量 dist下为生产版 src下为源码
 
 ##用法
-```
+```javascript
 var data = {
   list: [
     {name: li1, sex: 1},
@@ -24,7 +24,7 @@ var html = leaf('test')(data)
 ```
 
 ##模版
-<xmp>
+```
 {if $d.show}
 <ul>
 {for $d.list}
@@ -32,13 +32,13 @@ var html = leaf('test')(data)
 {/for}
 </ul>
 {/if}
-</xmp>
+```
 
 ##结果
-<xmp>
+```
 <ul>
   <li>1 : li1</li>
   <li>2 : li2</li>
   <li>3 : li3</li>
 </ul>
-</xmp>
+```
