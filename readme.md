@@ -11,7 +11,7 @@ var leaf = require('leaf')
 引入leaf.js leaf为全局变量 dist下为生产版 src下为源码
 
 ##用法
-```javascript
+```
 var data = {
   list: [
     {name: li1, sex: 1},
