@@ -1,16 +1,11 @@
-#leaf
+# leafjs
 
-##安装
+## 安装
 1. npm install
 2. npm start
 
-##node环境
-var leaf = require('leaf')
-
-##浏览器
-引入leaf.js leaf为全局变量 dist下为生产版 src下为源码
-
-##用法
+## 用法
+### 数据
 ```
 var data = {
   list: [
@@ -23,19 +18,20 @@ var data = {
 var html = leaf('test')(data)
 ```
 
-
-##模版
+### 模版
 ```
-{if $d.show}
-<ul>
-{for $d.list}
-  <li>{$i + 1} : {$v.name}</li>
-{/for}
-</ul>
-{/if}
+<div>
+  {if $d.show}
+  <ul>
+  {for $d.list}
+    <li>{$i + 1} : {$v.name}</li>
+  {/for}
+  </ul>
+  {/if}
+</div>
 ```
 
-##结果
+### 结果
 ```
 <ul>
   <li>1 : li1</li>
@@ -43,3 +39,5 @@ var html = leaf('test')(data)
   <li>3 : li3</li>
 </ul>
 ```
+
+## 详情见example
