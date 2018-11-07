@@ -2,18 +2,18 @@
   "author": {
     "name": "lijiabin"
   },
-  "description": "leaf template, easy, small, quick",
+  "description": "listen template, easy, small, quick",
   "scripts": {
     "start": "node build"
   },
-  "main": "src/leaf.js",
+  "main": "src/lt.js",
   "maintainers": [
     {
       "email": "13631624455@qq.com",
       "name": "lijiabin"
     }
   ],
-  "name": "leaf",
+  "name": "listen template",
   "version": "1.0.0",
   "devDependencies": {
     "uglify-js": "3.3.3"
