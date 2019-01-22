@@ -3,21 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>leaf</title>
+    <title>lt</title>
     <style>
     body {
         font-family: '宋体';
     }
     </style>
-    <script src="../src/leaf.js"></script>
+    <script src="../src/lt.js"></script>
 </head>
 
 <body>
     <p>
         很多浏览器防止了script,img标签的执行，但是绑定动态插入的标签还是可以攻击
     </p>
-    <script id="tpl" type="text/leaf">
-        {for $d}
+    <script id="tpl" type="text/lt">
+        {for $data}
         <ol>
             <li>{$k} => {$v}</li>
             <li>{escape $k} => {escape $v}</li>
@@ -31,7 +31,7 @@
         'img': '<img onerror="alert(\'XSS\')" alt="xss" src="">',
         '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
     }
-    var html = leaf('tpl')(xss);
+    var html = lt('tpl')(xss);
     var test = document.getElementById('test');
     test.innerHTML = html;
     </script>

@@ -13,7 +13,7 @@
       "name": "lijiabin"
     }
   ],
-  "name": "listen template",
+  "name": "listen-template",
   "version": "1.0.0",
   "devDependencies": {
     "uglify-js": "3.3.3"

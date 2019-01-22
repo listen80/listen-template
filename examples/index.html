@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>leaf</title>
+    <title>lt</title>
     <style>
     body {
         font-family: '宋体';
@@ -99,25 +99,25 @@
         color: #d53aff
     }
     </style>
-    <script src="../src/leaf.js"></script>
+    <script src="../src/lt.js"></script>
 </head>
 
 <body>
-    <script id="tpl" type="text/leaf">
-        {if $d === null}
-        <span class="null">null</span> {elif $d === undefined}
-        <span class="undefined">undefined</span> {elif $d.constructor === Object || $d.constructor === Array}
-        <span class="symbol">{$d.constructor === Object ? '&#123;' : '['}</span>{if Object.keys($d).length}<span class="expand"></span><div class="indent">
-            {for $d $v $k $i}
+    <script id="tpl" type="text/lt">
+        {if $data === null}
+        <span class="null">null</span> {elif $data === undefined}
+        <span class="undefined">undefined</span> {elif $data.constructor === Object || $data.constructor === Array}
+        <span class="symbol">{$data.constructor === Object ? '&#123;' : '['}</span>{if Object.keys($data).length}<span class="expand"></span><div class="indent">
+            {for $data $v $k $i}
             <div class="line">
                 <span class="key">{$k}</span><span class="colon">:</span>{include "viewJson" $v}
             </div>
             {/for}
-        </div>{/if}<span class="dot">...</span><span class="symbol">{$d.constructor === Object ? '&#125;' : ']'}</span> {elif $d.constructor === String}
-        <span class="string">"{$d}"</span> {elif $d.constructor === Number}
-        <span class="number">{$d}</span> {elif $d.constructor === Boolean}
-        <span class="boolean">{$d}</span> {else}
-        <span class="other">{$d}</span> {/if}
+        </div>{/if}<span class="dot">...</span><span class="symbol">{$data.constructor === Object ? '&#125;' : ']'}</span> {elif $data.constructor === String}
+        <span class="string">"{$data}"</span> {elif $data.constructor === Number}
+        <span class="number">{$data}</span> {elif $data.constructor === Boolean}
+        <span class="boolean">{$data}</span> {else}
+        <span class="other">{$data}</span> {/if}
     </script>
     <div id="test"></div>
     <script>
@@ -5434,7 +5434,7 @@
             }]
         }
     ]
-    var html = '<div class="json-wrap"><div class="line">' + leaf('tpl', 'viewJson')(data) + '</div></div>';
+    var html = '<div class="json-wrap"><div class="line">' + lt('tpl', 'viewJson')(data) + '</div></div>';
     var test = document.getElementById('test');
     test.innerHTML = html;
     test.onclick = function(e) {
