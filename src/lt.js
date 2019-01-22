@@ -127,13 +127,13 @@
     }
 
     function compile(source) {
-        var code = "'use strict';var $t=this,$e=$t.$e,$f=$t.$f,$s=$t.$s,$o='';";
+        var code = "var $t=this,$e=$t.$e,$f=$t.$f,$s=$t.$s,$o='';with($data){";
         var codes = source.split(/\{|\}/);
         for (var i = 0, len = codes.length; i < len; i++) {
             i % 2 === 0 ? code += for_html(codes[i]) : code += for_js(codes[i]);
         }
-        code += "return $o;";
-        return new Function("$d", code);;
+        code += "};return $o;";
+        return new Function("$data", code);;
     }
 
     lt.$e = escape;
