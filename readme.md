@@ -1,4 +1,4 @@
-# leafjs
+# listen-template
 
 ## 安装
 1. npm install
@@ -42,4 +42,7 @@ var html = leaf('test')(data)
 
 ## 详情见example
 
-[fffff](./examples/)
+[速度测试](./examples/speed_test/)
+[树形结构json](./examples/json/)
+[Xss](./examples/escape.html)
+[范例](./examples/easy.html)
