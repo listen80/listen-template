@@ -41,3 +41,5 @@ var html = leaf('test')(data)
 ```
 
 ## 详情见example
+
+[fffff](./examples/)
