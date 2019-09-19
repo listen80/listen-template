@@ -2,39 +2,34 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>escape</title>
-    <style>
-    body {
-        font-family: '宋体';
-    }
-    </style>
-    <script src="../src/lt.js"></script>
+  <meta charset="UTF-8">
+  <title>escape</title>
+  <script src="../src/lt.js"></script>
 </head>
 
 <body>
-    <p>
-        很多浏览器防止了script,img标签的执行，但是绑定动态插入的标签还是可以攻击
-    </p>
-    <script id="tpl" type="text/lt">
-        {for}
+  <p>
+    很多浏览器防止了script,img标签的执行，但是绑定动态插入的标签还是可以攻击
+  </p>
+  <script id="tpl" type="text/html">
+    {for}
         <ol>
             <li>{$k} => {$v}</li>
             <li>{escape $k} => {escape $v}</li>
         </ol>
         {/for}
     </script>
-    <div id="test"></div>
-    <script>
-    var xss = {
-        '<b>bb</b>': '<img src="javascript:\'alert(1)\'"><\/img>',
-        'img': '<img onerror="alert(\'XSS\')" alt="xss" src="">',
-        '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
-    }
-    var html = lt('tpl')(xss);
-    var test = document.getElementById('test');
-    test.innerHTML = html;
-    </script>
+  <div id="test"></div>
+  <script>
+  var xss = {
+    '<b>bb</b>': '<img src="javascript:\'alert(1)\'"><\/img>',
+    'img': '<img onerror="alert(\'我只能告诉你有些xss攻击只能在编码方式避免\')" alt="xss" src="">',
+    '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
+  }
+  var html = lt('tpl')(xss);
+  var test = document.getElementById('test');
+  test.innerHTML = html;
+  </script>
 </body>
 
 </html>
