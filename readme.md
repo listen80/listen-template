@@ -49,7 +49,7 @@ var html = lt('test')(data)
 ```
 
 ## 例子
-[速度测试](/listen-template/examples/speed_test/)  
-[树形结构json](/listen-template/examples/json/)  
-[Xss](/listen-template/examples/escape.html)  
-[范例](/listen-template/examples/easy.html)  
+[速度测试](https://listen80.github.io/listen-template/examples/speed_test/)  
+[树形结构json](https://listen80.github.io/listen-template/examples/json/)  
+[Xss](https://listen80.github.io/listen-template/examples/escape.html)  
+[范例](https://listen80.github.io/listen-template/examples/easy.html)  
