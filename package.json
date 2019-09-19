@@ -1,20 +1,16 @@
 {
-  "author": {
-    "name": "lijiabin"
-  },
-  "description": "listen template, easy, small, quick",
-  "scripts": {
-    "start": "node build"
-  },
-  "main": "src/lt.js",
-  "maintainers": [
-    {
-      "email": "13392153053@163.com",
-      "name": "lijiabin"
-    }
-  ],
   "name": "listen-template",
   "version": "1.0.0",
+  "description": "listen template, easy, small, quick",
+  "main": "src/lt.js",
+  "scripts": {
+    "build": "node build"
+  },
+  "author": "listen80",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/listen80/listen-template.git"
+  },
   "devDependencies": {
     "uglify-js": "3.3.3"
   }
