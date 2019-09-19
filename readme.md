@@ -1,13 +1,28 @@
 # listen-template
 
+## 优点
+1. 简单 语法简单易懂
+2. 极速 超过绝大数引擎
+3. 小巧 zip后不足2KB
+
+## 例子
+[速度测试](https://listen80.github.io/listen-template/examples/speed_test/)  
+[树形结构json](https://listen80.github.io/listen-template/examples/json/)  
+[Xss](https://listen80.github.io/listen-template/examples/escape.html)  
+[范例](https://listen80.github.io/listen-template/examples/easy.html)  
+
 ## 安装
+
+引入js文件
 ```html
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="lt.js"></script>
 ```
 
 ## 用法
+
 ### 数据
-```
+
+```js
 var data = {
   "name": "北京市",
   "city": [
@@ -36,7 +51,8 @@ var html = lt('test')(data)
 ```
 
 ### 模版
-```
+
+```html
 <div>
   {if $d.name}
   <ul>
@@ -47,9 +63,3 @@ var html = lt('test')(data)
   {/if}
 </div>
 ```
-
-## 例子
-[速度测试](https://listen80.github.io/listen-template/examples/speed_test/)  
-[树形结构json](https://listen80.github.io/listen-template/examples/json/)  
-[Xss](https://listen80.github.io/listen-template/examples/escape.html)  
-[范例](https://listen80.github.io/listen-template/examples/easy.html)  
