@@ -1,5 +1,5 @@
-var length = 10000;
-var number = 100;
+var length = 1e3; // 数据 长度
+var number = 1e2; // 测试 次数
 var data = {
   list: []
 }
@@ -137,11 +137,14 @@ var startTest = function () {
   ];
 
   var categories = [];
+  var data = [];
   for (var i = 0; i < testList.length; i++) {
     categories.push(testList[i].name);
+    data.push({
+        color: colorList[i],
+        y: 0,
+    });
   }
-
-  var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   var chart = new Highcharts.Chart({
     chart: {
@@ -187,7 +190,7 @@ var startTest = function () {
       }
     },
     series: [{
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      data: data.slice()
     }]
 
   });
@@ -197,40 +200,22 @@ var startTest = function () {
   var tester = function () {
     var target = testList[i];
     if (target) {
-      setTimeout(function () {
         var starttime = +new Date;
         target.tester();
         var endTime = +new Date;
         data[i] = {
-          color: colorList[i],
-          y: (endTime - starttime)
+          y: endTime - starttime
         }
         chart.series[0].setData(data)
         i++;
         setTimeout(function () {
           tester();
         }, 500);
-      }, 100)
     }
   }
-
-  tester();
+  setTimeout(tester);
 }
 
 window.onload = function () {
-  var h1 = document.getElementsByTagName('h1')[0];
-  var time = 4;
-  function next() {
-    time--;
-    var txt = '模板引擎速度测试'
-    if (time) {
-      txt += '(' + time + ')';
-    } else {
-      clearInterval(timer);
-      setTimeout(startTest);
-    }
-    h1.innerText = txt;
-  }
-  next();
-  var timer = setInterval(next, 1000)
+   setTimeout(startTest);
 }
