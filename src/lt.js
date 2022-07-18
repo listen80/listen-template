@@ -29,17 +29,16 @@
         return value;
     }
 
+
+    var map = {
+        "<": "&#60;",
+        ">": "&#62;",
+        '"': "&#34;",
+        "'": "&#39;",
+        "&": "&#38;"
+    }
     function escape(value) {
-        return toString(value).replace(/&(?![\w#]+;)|[<>"']/g, function (s) {
-            var map = {
-                "<": "&#60;",
-                ">": "&#62;",
-                '"': "&#34;",
-                "'": "&#39;",
-                "&": "&#38;"
-            }
-            return map[s];
-        })
+        return toString(value).replace(/&(?![\w#]+;)|[<>"']/g, function (s) { return map[s]; })
     }
 
     function ArrayLike(obj) {

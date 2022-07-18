@@ -13,7 +13,7 @@
       {if $d.name}
       <ul>
         {for $d.city}
-        <li>{$k + 1} : {$v}</li>
+        <li>{$k + 1} : {$v} { if $v.length > 3 } long { /if }</li>
         {/for}
       </ul>
       {/if}
