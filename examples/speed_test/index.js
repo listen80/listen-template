@@ -1,5 +1,5 @@
 var length = 1e3; // 数据 长度
-var number = 1e3; // 测试 次数
+var number = 2e3; // 测试 次数
 var testData = {
   list: [],
 };
