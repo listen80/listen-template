@@ -6,6 +6,10 @@
 2. 极速 超过绝大数引擎
 3. 小巧 min 后不足 2KB
 
+## ps
+1 采用自定义语法，相对于原生语法出错概率低
+2 自动识别遍历对象类型，采取对应枚举方式
+3 取消动态作用域分析，手动取值提高性能
 ## 例子
 
 [速度测试](https://listen80.github.io/listen-template/examples/speed_test/)  
