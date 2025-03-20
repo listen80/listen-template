@@ -29,10 +29,26 @@
 
 ## 用法
 
+### 模版
+
+```html
+<script id="tpl" type="text/html">
+  <div>
+    {if $d.name}
+    <ul>
+      {for $d.city}
+      <li>{$k + 1} : {$v}</li>
+      {/for}
+    </ul>
+    {/if}
+  </div>
+</script>
+```
+
 ### 数据
 
 ```js
-var data = {
+const data = {
   name: "北京市",
   city: [
     "东城区",
@@ -56,21 +72,11 @@ var data = {
   ]
 };
 
-var html = lt("test")(data);
 ```
 
-### 模版
-
-```html
-<script id="tpl" type="text/html">
-  <div>
-    {if $d.name}
-    <ul>
-      {for $d.city}
-      <li>{$k + 1} : {$v}</li>
-      {/for}
-    </ul>
-    {/if}
-  </div>
-</script>
+### 使用
+```js
+const renderFunc = lt("tpl");
+const htmlDetail = renderFunc(data);
+console.log(htmlDetail);
 ```
