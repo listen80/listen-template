@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>for $d $k $v /for</title>
+  <script src="../dist/lt.min.js"></script>
+</head>
+
+<body>
+  <pre>
+    支持循环指令
+    <code>for $d $v $k</code>
+    $v 表示值(可以替换变量名)
+    $k 表示索引(可以替换变量名)
+    多重嵌套for建议替换变量名
+    例子如下
+  </pre>
+  <script id="tpl" type="text/html">
+    <ul>
+      {for $d}
+      <li>第{$k + 1}项 => Math.{$v}</li>
+      {/for}
+      <p>--------</p>
+      {for $d value key}
+      <li>第{key + 1}项 => 值:{value}（自定义变量）</li>
+      {/for}
+    </ul>
+  </script>
+  <div id="test"></div>
+  <script>
+    var data = Object.getOwnPropertyNames(Math).slice(0, 10);
+    var html = lt("tpl")(data);
+    var test = document.getElementById("test").innerHTML = html;
+  </script>
+</body>
+
+</html>

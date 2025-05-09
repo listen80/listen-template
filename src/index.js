@@ -6,7 +6,13 @@ const cache = {};
 function build(tpl) {
   const func = compile(tpl);
   return function (data) {
-    return func.call(lt, data);
+    try {
+      return func.call(lt, data);
+    } catch (e) {
+      console.error(e);
+      console.error("lt.js: template error", func);
+      return "";
+    }
   };
 }
 

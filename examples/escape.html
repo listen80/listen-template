@@ -13,22 +13,23 @@
   </p>
   <script id="tpl" type="text/html">
     {for}
-        <ol>
-            <li>{$k} => {$v}</li>
-            <li>{escape $k} => {escape $v}</li>
-        </ol>
-        {/for}
-    </script>
+      <ol>
+          <li>{$k} => {$v}</li>
+          <li>{escape $k} => {escape $v}</li>
+      </ol>
+      {/for}
+  </script>
   <div id="test"></div>
   <script>
-  var xss = {
-    '<b>bb</b>': '<img src="javascript:\'alert(1)\'"><\/img>',
-    'img': '<img onerror="alert(\'我只能告诉你有些xss攻击只能在编码方式避免\')" alt="xss" src="">',
-    '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
-  }
-  var html = lt('tpl')(xss);
-  var test = document.getElementById('test');
-  test.innerHTML = html;
+    var xss = {
+      '<b>bb</b>': '<img src="javascript:\'alert(1)\'"><\/img>',
+      '<b>bb</b>': '<a src="javascript: alert(document.cookie)"><\/a>',
+      'img': '<img onerror="document.write(document.cookie)" alt="xss" src="">',
+      '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
+    }
+    var html = lt('tpl')(xss);
+    var test = document.getElementById('test');
+    test.innerHTML = html;
   </script>
 </body>
 
