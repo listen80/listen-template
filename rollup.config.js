@@ -19,8 +19,7 @@ const plugins = [
 if (process.env.NODE_ENV === "development") {
   plugins.push(
     serve({
-      // open: true,
-      port: 9000,
+      port: process.env.PORT || 9000,
       contentBase: "",
     })
   );
