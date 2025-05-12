@@ -7,17 +7,20 @@
 3. 小巧 min 后不足 2KB
 
 ## ps
-1. 采用自定义语法，相对于原生语法出错概率低
+1. 采用自定义语法指令，相对于原生语法出错概率低
 2. 自动识别遍历对象类型，采取对应枚举方式
 3. 取消动态作用域分析，手动取值提高性能
 
 ## 例子
+[if指令](https://listen80.github.io/listen-template/examples/if.html)  
+[for指令](https://listen80.github.io/listen-template/examples/for.html)  
+[eval指令](https://listen80.github.io/listen-template/examples/eval.html)  
+[include指令](https://listen80.github.io/listen-template/examples/include.html)  
 
-[速度测试](https://listen80.github.io/listen-template/examples/speed_test/)  
+[防XSS](https://listen80.github.io/listen-template/examples/escape.html)  
+[性能测试](https://listen80.github.io/listen-template/examples/speed_test/)  
+
 [树形结构 json](https://listen80.github.io/listen-template/examples/json/)  
-[README例子](https://listen80.github.io/listen-template/examples/)  
-[防Xss](https://listen80.github.io/listen-template/examples/escape.html)  
-[for循环](https://listen80.github.io/listen-template/examples/easy.html)  
 
 ## 安装
 
