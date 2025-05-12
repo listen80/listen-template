@@ -11,6 +11,12 @@
 2. 自动识别遍历对象类型，采取对应枚举方式
 3. 取消动态作用域分析，手动取值提高性能
 
+## 功能
+提供if for include基础指令实现基础语法
+提供eval自定义执行变量
+体统escape指令防止XSS攻击
+
+
 ## 例子
 [if指令](https://listen80.github.io/listen-template/examples/if.html)  
 [for指令](https://listen80.github.io/listen-template/examples/for.html)  
