@@ -6,11 +6,11 @@ function for_html(code) {
   if (code) {
     return echo(
       "'" +
-        code
-          .replace(/('|\\)/g, "\\$1")
-          .replace(/\r/g, "\\r")
-          .replace(/\n/g, "\\n") +
-        "'"
+      code
+        .replace(/('|\\)/g, "\\$1")
+        .replace(/\r/g, "\\r")
+        .replace(/\n/g, "\\n") +
+      "'"
     );
   } else {
     return code;
@@ -50,7 +50,7 @@ function for_js(code) {
       break;
 
     case "eval":
-      code = code + ";";
+      code = split.join(' ') + ";";
       break;
 
     case "escape":
@@ -75,7 +75,13 @@ function compile(source) {
     i % 2 === 0 ? (code += for_html(codes[i])) : (code += for_js(codes[i]));
   }
   code += "return $o;";
-  return new Function("$d", code);
+  try {
+    return new Function("$d", code);
+  } catch (e) {
+    console.error("Compile error: " + e.message);
+    console.error(code);
+    throw e;
+  }
 }
 
 module.exports = { compile };

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>eval</title>
+  <script src="../dist/lt.min.js"></script>
+</head>
+
+<body>
+  <pre>
+    支持eval指令
+    <code>eval</code>
+    例子如下
+  </pre>
+  <script id="tpl" type="text/html">
+    <div>
+      {eval var myData = [1, 2, 3]}
+      {myData}
+      {if $d.name}
+      {eval var myVar = $d.name + 'eval'}
+      <p>name: <span style="color: rgb(67, 18, 243);">{$d.name} : {myVar}</span></p>
+      {else}
+      <p>name: <span style="color: rgb(59, 47, 47);">no name</span></p>
+      {/if}
+    </div>
+  </script>
+  <div id="test" style="margin: 20px;"></div>
+  <script>
+    var data = {
+      name: 'lt',
+      animal: 'dog'
+    }
+    var html = lt('tpl')(data);
+    var test = document.getElementById('test').innerHTML = html;
+  </script>
+</body>
+
+</html>

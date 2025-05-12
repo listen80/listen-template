@@ -16,10 +16,9 @@
 [for指令](https://listen80.github.io/listen-template/examples/for.html)  
 [eval指令](https://listen80.github.io/listen-template/examples/eval.html)  
 [include指令](https://listen80.github.io/listen-template/examples/include.html)  
+[escape指令(XSS)](https://listen80.github.io/listen-template/examples/escape.html)  
 
-[防XSS](https://listen80.github.io/listen-template/examples/escape.html)  
 [性能测试](https://listen80.github.io/listen-template/examples/speed_test/)  
-
 [树形结构 json](https://listen80.github.io/listen-template/examples/json/)  
 
 ## 安装
@@ -28,6 +27,12 @@
 
 ```html
 <script type="text/javascript" src="https://listen80.github.io/listen-template/dist/lt.js"></script>
+```
+
+nodejs
+
+```js
+const lt = require('lt')
 ```
 
 ## 用法
@@ -59,7 +64,6 @@ var data = {
   ]
 };
 
-var html = lt("test")(data);
 ```
 
 ### 模版
@@ -76,4 +80,24 @@ var html = lt("test")(data);
     {/if}
   </div>
 </script>
+```
+
+### 渲染
+
+```js
+var html = lt("tpl")(data);
+
+// 或者
+var mytpl = `
+<div>
+  {if $d.name}
+  <ul>
+    {for $d.city}
+    <li>{$k + 1} : {$v}</li>
+    {/for}
+  </ul>
+  {/if}
+</div>
+`
+var html = lt(mytpl)(data);
 ```
