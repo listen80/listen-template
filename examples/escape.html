@@ -9,23 +9,29 @@
 
 <body>
   <p>
-    很多浏览器防止了script,img标签的执行，但是绑定动态插入的标签还是可以攻击
+    <strong>lt.js</strong>会对插入的内容进行转义，避免了XSS攻击
+  </p>
+  <p>
+    为了防止XSS攻击，现代浏览器还有CSP安全策略，防止非安全域的代码执行
+  </p>
+  <p>
+    尽量不要使用用户的值，填写动态属性的属性值，极容易造成XSS攻击
   </p>
   <script id="tpl" type="text/html">
-    {for}
-      <ol>
-          <li>{$k} => {$v}</li>
-          <li>{escape $k} => {escape $v}</li>
-      </ol>
+    <ol>
+      {for}
+        <li>拦截后 {$k} => {escape $v}</li>
       {/for}
+    </ol>
   </script>
   <div id="test"></div>
   <script>
     var xss = {
-      '<b>bb</b>': '<img src="javascript:\'alert(1)\'"><\/img>',
-      '<b>bb</b>': '<a src="javascript: alert(document.cookie)"><\/a>',
-      'img': '<img onerror="document.write(document.cookie)" alt="xss" src="">',
-      '<i>ii</i>': '<script>alert(\'XSS\')<\/script>'
+      'text': '一段有恶意内容的文本 <div style="margin: 200px">我是恶意内容</div>',
+      'img src': '恶意img <img src="javascript:alert(1)"><\/img>',
+      'inner script': '恶意script <script>alert(\'XSS\')<\/script>',
+      'img onerror': '恶意Img error <img onerror="console.log(\'cookie:\', document.cookie)" alt="xss" src="">',
+      'a href': '恶意a href <a href="javascript: console.log(document.cookie)">a标签，弹出cookie<\/a>'
     }
     var html = lt('tpl')(xss);
     var test = document.getElementById('test');
