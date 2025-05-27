@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>include</title>
+  <script src="../dist/lt.min.js"></script>
+</head>
+
+<body>
+  <h4>
+    可以同通过include引入其他模板，嵌套使用，类似于函数调用，可以渐进式无限扩展
+  </h4>
+  <script id="tpl1" type="text/html">
+    {for $d.list}
+      <p>
+        {if $v > 60}
+        {$k + 1} => <span style="color: green;">{$v}</span>
+        {elif $v > 30}
+        {$k + 1} => <span style="color: red;">{$v}</span>
+        {else}
+        {$k + 1} => <span style="color: blue;">{$v}</span>
+        {/if}
+        {include 'tpl2' 2222}
+      </p>
+    {/for}
+  </script>
+  <script id="tpl2" type="text/html">
+    tpl2 render
+    tpl1 data: {$d}
+  </script>
+  <div id="test"></div>
+  <script>
+    // 先把tpl2的内容加载到缓存中
+    lt('tpl2')
+
+    var data = {
+      list: []
+    }
+    for (var x = 0; x < 10; x++) {
+      data.list.push(Math.floor(Math.random() * 100))
+    }
+    var html = lt('tpl1')(data);
+    var test = document.getElementById('test');
+    test.innerHTML = html;
+  </script>
+</body>
+
+</html>

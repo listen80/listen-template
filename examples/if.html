@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>if else elseif /if</title>
+  <script src="../dist/lt.min.js"></script>
+</head>
+
+<body>
+  <pre>
+    支持判断指令
+    <code>if else elseif /if</code>
+    例子如下
+  </pre>
+  <script id="tpl" type="text/html">
+    <div>
+      {if $d.name}
+      <p>name: <span style="color: rgb(67, 18, 243);">{$d.name}</span></p>
+      {else}
+      <p>name: <span style="color: rgb(59, 47, 47);">no name</span></p>
+      {/if}
+    </div>
+    <div>
+      {if $d.animal === 'cat'}
+      <p>animal says: <span style="color: rgb(253, 4, 4);"> miao </span></p>
+      {elseif $d.animal === 'dog'}
+      <p>animal says: <span style="color: rgb(106, 112, 160);"> wang</span></p>
+      {/if}
+    </div>
+  </script>
+  <div id="test" style="margin: 20px;"></div>
+  <div id="test2" style="margin: 20px;"></div>
+  <script>
+    var data = {
+      name: 'lt',
+      animal: 'dog'
+    }
+    var html = lt('tpl')(data);
+    var test = document.getElementById('test').innerHTML = html;
+
+    var data2 = {
+      name: '',
+      animal: 'cat'
+    }
+    var html = lt('tpl')(data2);
+    var test = document.getElementById('test2').innerHTML = html;
+  </script>
+</body>
+
+</html>
