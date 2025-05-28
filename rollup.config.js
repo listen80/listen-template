@@ -19,7 +19,7 @@ const plugins = [
 if (process.env.NODE_ENV === "development") {
   plugins.push(
     serve({
-      port: process.env.PORT || 9000,
+      port: process.env.PORT || 9001,
       contentBase: "./",
       historyApiFallback: '/README.md',
     })
