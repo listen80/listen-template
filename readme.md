@@ -59,6 +59,7 @@ const lt = require('lt')
     {/if}
   </div>
 </script>
+<div id="result"></div>  
 ```
 
 ### 数据
@@ -101,8 +102,12 @@ console.log(htmlDetail);
 
 ```js
 var html = lt("tpl")(data);
+document.getElementById("result").innerHTML = html;
+```
 
-// 或者
+### 字符串渲染
+
+```js
 var mytpl = `
 <div>
   {if $d.name}
@@ -115,4 +120,5 @@ var mytpl = `
 </div>
 `
 var html = lt(mytpl)(data);
+console.log(html);
 ```
