@@ -12,9 +12,9 @@
 3. 取消动态作用域分析，手动取值提高性能
 
 ## 功能
-提供if for include基础指令实现基础语法
-提供eval自定义执行变量
-体统escape指令防止XSS攻击
+- 提供if for include基础指令实现基础语法
+- 提供eval自定义执行变量
+- 体统escape指令防止XSS攻击
 
 
 ## 例子
